@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      host: localhost
+      authentication-database: admin
+      auto-index-creation: true
+      password: root
+      username: root
+      database: commerce
+      port: 27017
+    web:
+      pageable:
+        max-page-size: 100
+  main:
+    allow-bean-definition-overriding: true
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: env,beans
