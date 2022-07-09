@@ -11,20 +11,20 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("brands")
+@RequestMapping("/banners")
 @RequiredArgsConstructor
-public class BrannerController {
+public class BannerController {
 
-    private final BrandService brandService;
+    private final BannerService bannerService;
 
     @GetMapping
-    public ResponseEntity<Page<BrandDto>> all(Pageable pageable) {
-        return new ResponseEntity<>(this.brandService.findAll(pageable) , HttpStatus.OK);
+    public ResponseEntity<Page<BannerDto>> all(Pageable pageable) {
+        return new ResponseEntity<>(this.bannerService.findAll(pageable) , HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<BrandDto> save(@RequestBody @Valid CreateBrandRequest request) {
-        return new ResponseEntity<>(this.brandService.save(request) , HttpStatus.CREATED);
+    public ResponseEntity<BannerDto> save( @Valid CreateBannerRequest request) {
+        return new ResponseEntity<>(this.bannerService.save(request) , HttpStatus.CREATED);
     }
 
 

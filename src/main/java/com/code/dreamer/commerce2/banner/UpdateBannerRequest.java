@@ -5,5 +5,7 @@ import lombok.Data;
 @Data
 public class UpdateBannerRequest {
     private String id;
-    private String name;
+    private String title;
+    private String text;
+    private String image;
 }

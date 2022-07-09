@@ -11,8 +11,11 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.nativex.hint.FieldHint;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -26,11 +29,16 @@ import java.io.Serializable;
 public class Banner extends AuditMetadata implements Serializable {
     @Id
     private String id;
-    @NotBlank(message = "Banner name can't be blank")
-    private String name;
 
+    @NotNull(message = "banner title can't be Null")
+    @NotBlank(message = "banner title can't be blank")
+    private String title;
 
-    public Banner(String name) {
-        this.name = name;
-    }
+    @NotNull(message = "banner text can't be Null")
+    @NotBlank(message = "banner text can't be blank")
+    private String text;
+
+    @NotNull(message = "banner image can't be Null")
+    @NotBlank(message = "banner image can't be blank")
+    private String image;
 }
