@@ -20,3 +20,5 @@ management:
     web:
       exposure:
         exclude: env,beans
+storage:
+  dir: ./upload
